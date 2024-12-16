@@ -8,22 +8,13 @@ CONFIG_DIR := ${ROOT_DIR}/config
 SCRIPTS_DIR := ${ROOT_DIR}/scripts
 DOCKER_COMPOSE_DEV := ${CONFIG_DIR}/docker-compose.dev.yml
 DOCKER_COMPOSE_STG := ${CONFIG_DIR}/docker-compose.stg.yml
-DOCKER_COMPOSE_PROD := ${CONFIG_DIR}/docker-compose.prod.yml
 
 # Phony targets declaration
 .PHONY: all build run test clean lint \
 	docker-dev-build docker-dev-up docker-dev-down docker-dev-logs \
 	docker-stg-build docker-stg-up docker-stg-down docker-stg-logs \
-	docker-prod-build docker-prod-up docker-prod-down docker-prod-logs \
-	sg_backend-dev-build sg_backend-dev-up sg_backend-dev-down sg_backend-dev-logs \
-	sg_backend-stg-build sg_backend-stg-up sg_backend-stg-down sg_backend-stg-logs \
-	sg_backend-prod-build sg_backend-prod-up sg_backend-prod-down sg_backend-prod-logs \
-	sg_requests-dev-build sg_requests-dev-up sg_requests-dev-down sg_requests-dev-logs \
-	sg_requests-stg-build sg_requests-stg-up sg_requests-stg-down sg_requests-stg-logs \
-	sg_requests-prod-build sg_requests-prod-up sg_requests-prod-down sg_requests-prod-logs \
 	tech-house-dev-build tech-house-dev-up tech-house-dev-down tech-house-dev-logs \
-	tech-house-stg-build tech-house-stg-up tech-house-stg-down tech-house-stg-logs \
-	tech-house-prod-build tech-house-prod-up tech-house-prod-down tech-house-prod-logs
+	tech-house-stg-build tech-house-stg-up tech-house-stg-down tech-house-stg-logs
 
 # Default target
 all: build run
@@ -89,25 +80,6 @@ docker-stg-down:
 docker-stg-logs:
 	@echo "Fetching logs for $(PROFILE) services in staging..."
 	docker compose -f ${DOCKER_COMPOSE_STG} --profile $(PROFILE) logs -f
-
-# Production Docker commands
-docker-prod-build:
-	@echo "Building $(PROFILE) services in production mode..."
-	docker compose -f ${DOCKER_COMPOSE_PROD} --profile $(PROFILE) up --build -d
-	@$(MAKE) docker-prod-logs PROFILE=$(PROFILE)
-
-docker-prod-up:
-	@echo "Starting $(PROFILE) services in production mode..."
-	docker compose -f ${DOCKER_COMPOSE_PROD} --profile $(PROFILE) up -d
-	@$(MAKE) docker-prod-logs PROFILE=$(PROFILE)
-
-docker-prod-down:
-	@echo "Stopping $(PROFILE) services in production mode..."
-	docker compose -f ${DOCKER_COMPOSE_PROD} --profile $(PROFILE) down --remove-orphans
-
-docker-prod-logs:
-	@echo "Fetching logs for $(PROFILE) services in production..."
-	docker compose -f ${DOCKER_COMPOSE_PROD} --profile $(PROFILE) logs -f
 
 # Tech House profile targets for dev
 tech-house-dev-build:

@@ -94,6 +94,202 @@ El proyecto utiliza un Makefile con perfiles específicos para Tech House, permi
 
 Para cualquier problema adicional, consulta la documentación del proyecto o contacta al equipo de desarrollo.
 
+# Documentación de la API del Gestor de Clientes
+
+Este documento proporciona información detallada sobre los endpoints disponibles en la API del Gestor de Clientes, parte del proyecto Costumer Manager.
+
+## Configuración Base
+
+- **Host**: localhost
+- **Puerto**: 8089
+- **URL Base**: `/api/v1`
+- **Content-Type**: application/json
+
+## Endpoints de Clientes
+
+### GET /customers
+Obtiene una lista de todos los clientes.
+
+**Request**
+```http
+GET http://localhost:8089/api/v1/customers
+```
+
+**Respuesta (200 OK)**
+```json
+{
+    "customers": [
+        {
+            "id": 1,
+            "name": "string",
+            "last_name": "string",
+            "email": "string",
+            "phone": "string",
+            "age": number,
+            "birth_date": "string"
+        }
+    ]
+}
+```
+
+### GET /customers/{id}
+Obtiene un cliente específico por ID.
+
+**Request**
+```http
+GET http://localhost:8089/api/v1/customers/164
+```
+
+**Respuesta (200 OK)**
+```json
+{
+    "customers": {
+        "id": 164,
+        "name": "string",
+        "last_name": "string",
+        "email": "string",
+        "phone": "string",
+        "age": number,
+        "birth_date": "string"
+    }
+}
+```
+
+### POST /customers
+Crea un nuevo cliente.
+
+**Request**
+```http
+POST http://localhost:8089/api/v1/customers
+Content-Type: application/json
+
+{
+    "name": "Homero",
+    "last_name": "Simpson",
+    "email": "homeros@springfield.com",
+    "phone": "555123789",
+    "age": 25,
+    "birth_date": "1999-01-15T00:00:00Z"
+}
+```
+
+**Respuesta**
+- 201 Created: Cliente creado exitosamente
+- 400 Bad Request: Datos de entrada inválidos
+
+### PUT /customers/{id}
+Actualiza un cliente existente.
+
+**Request**
+```http
+PUT http://localhost:8089/api/v1/customers/1
+Content-Type: application/json
+
+{
+    "name": "Emma",
+    "last_name": "Watson",
+    "email": "emma.watson@email.com",
+    "phone": "8888888888",
+    "age": 20,
+    "birth_date": "2004-01-15T00:00:00Z"
+}
+```
+
+**Respuesta**
+- 200 OK: Cliente actualizado exitosamente
+- 400 Bad Request: Datos de entrada inválidos
+- 404 Not Found: Cliente no encontrado
+
+### DELETE /customers/{id}
+Elimina un cliente.
+
+**Request**
+```http
+DELETE http://localhost:8089/api/v1/customers/176
+```
+
+**Respuesta**
+- 204 No Content: Cliente eliminado exitosamente
+- 404 Not Found: Cliente no encontrado
+
+### GET /customers/kpi
+Obtiene KPIs (Indicadores Clave de Rendimiento) de los clientes.
+
+**Request**
+```http
+GET http://localhost:8089/api/v1/customers/kpi
+```
+
+**Respuesta (200 OK)**
+```json
+{
+    // métricas KPI
+}
+```
+
+## Endpoints de Utilidad
+
+### GET /ping
+Endpoint simple de ping para probar la conectividad de la API.
+
+**Request**
+```http
+GET http://localhost:8089/api/v1/ping
+```
+
+**Respuesta (200 OK)**
+```json
+{
+    "message": "pong"
+}
+```
+
+## Estructura de Datos del Cliente
+
+### Campos Requeridos
+```json
+{
+    "name": "string",       // Nombre del cliente
+    "last_name": "string",  // Apellido del cliente
+    "email": "string",      // Correo electrónico (único)
+    "phone": "string",      // Número de teléfono
+    "age": number,          // Edad
+    "birth_date": "string"  // Fecha de nacimiento (formato ISO 8601)
+}
+```
+
+### Validaciones
+- El email debe ser único en el sistema
+- La fecha de nacimiento debe estar en formato ISO 8601 (ejemplo: "2004-01-15T00:00:00Z")
+- La edad debe ser un número positivo
+- Los campos name, last_name, email, edad y fecha de nacimiento son obligatorios
+
+## Respuestas de Error
+
+La API devuelve respuestas de error estandarizadas en el siguiente formato:
+
+```json
+{
+    "error": {
+        "code": "string",
+        "message": "string",
+        "details": "string"
+    }
+}
+```
+
+Códigos de error comunes:
+- Entrada Inválida: Cuando los datos proporcionados no cumplen con el formato esperado
+- Error de Validación: Cuando los datos no pasan las validaciones de negocio
+- No Encontrado: Cuando el recurso solicitado no existe
+- Error Interno del Servidor: Cuando ocurre un error inesperado
+
+## Colección de Postman
+
+Adjunta la coleccion de postman correspondiente.
+
+
+# Challenge
 
 Descripción del Desafío (con Docker y preparado para Lambda + KPI de Clientes):
 
@@ -153,7 +349,7 @@ Crear un endpoint GET /clients/kpi que calcule y devuelva los siguientes indicad
   - Desviación estándar de edad: Calcular la variación de las edades respecto al promedio.
   - Los KPI deben calcularse en tiempo real basados en los clientes almacenados.
 
-// NOTE: on progress
+// INFO: Done
 Testing:
    - Escribir pruebas unitarias para los handlers (endpoints).
    - Crear pruebas de integración para asegurarse de que la API funciona correctamente.

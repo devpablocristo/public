@@ -1,0 +1,197 @@
+{
+	"info": {
+		"_postman_id": "cac1bf80-1783-494f-8478-96aa2ad322bf",
+		"name": "Costumer Manager",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Tech House",
+			"item": [
+				{
+					"name": "Ping",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8089/api/v1/ping",
+							"host": [
+								"localhost"
+							],
+							"port": "8089",
+							"path": [
+								"api",
+								"v1",
+								"ping"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Customers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8089/api/v1/customers",
+							"host": [
+								"localhost"
+							],
+							"port": "8089",
+							"path": [
+								"api",
+								"v1",
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Costumer",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8089/api/v1/customers/164",
+							"host": [
+								"localhost"
+							],
+							"port": "8089",
+							"path": [
+								"api",
+								"v1",
+								"customers",
+								"164"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Costumer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Homero\",\n    \"last_name\": \"Simpson\",\n    \"email\": \"homeros@pringfield.comdas\",\n    \"phone\": \"555123789\",\n    \"age\": 25,\n    \"birth_date\": \"1999-01-15T00:00:00Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8089/api/v1/customers",
+							"host": [
+								"localhost"
+							],
+							"port": "8089",
+							"path": [
+								"api",
+								"v1",
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Costumer",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Emma\",\n    \"last_name\": \"Watson\",\n    \"email\": \"emma.watson@email.com\",\n    \"phone\": \"8888888888\",\n    \"age\": 20,\n    \"birth_date\": \"2004-01-15T00:00:00Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8089/api/v1/customers/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8089",
+							"path": [
+								"api",
+								"v1",
+								"customers",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Costumer",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Emma Emma\",\n    \"last_name\": \"Watson\",\n    \"email\": \"emmaemma@email.com\",\n    \"phone\": \"8888888888\",\n    \"age\": 20,\n    \"birth_date\": \"2004-01-15T00:00:00Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8089/api/v1/customers/176",
+							"host": [
+								"localhost"
+							],
+							"port": "8089",
+							"path": [
+								"api",
+								"v1",
+								"customers",
+								"176"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get KPI",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8089/api/v1/customers/kpi",
+							"host": [
+								"localhost"
+							],
+							"port": "8089",
+							"path": [
+								"api",
+								"v1",
+								"customers",
+								"kpi"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
