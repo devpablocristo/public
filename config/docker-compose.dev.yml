@@ -1,15 +1,15 @@
 services:
-  customer_manager:
-    container_name: "customer_manager"
+  customers_manager:
+    container_name: "customers_manager"
     build:
       context: ..
       dockerfile: config/Dockerfile.dev
-    image: "customer_manager:${APP_VERSION}"
+    image: "customers_manager:${APP_VERSION}"
     env_file:
       - .env
     ports:
-      - "${CUSTOMER_MANAGER_WEB_SERVER_PORT}:${WEB_SERVER_PORT}"
-      - "${CUSTOMER_MANAGER_DELVE_PORT}:${DELVE_PORT}"
+      - "${customers_manager_WEB_SERVER_PORT}:${WEB_SERVER_PORT}"
+      - "${customers_manager_DELVE_PORT}:${DELVE_PORT}"
     volumes:
       - type: bind
         source: ..
@@ -21,8 +21,8 @@ services:
     security_opt:
       - seccomp:unconfined
     environment:
-      - BUILDING_FILES=/app/projects/tech-house/customers-manager/cmd/api/main.go
-      - APP_NAME=customer_manager
+      - BUILDING_FILES=/app/projects/customers-manager/cmd/api/main.go
+      - APP_NAME=customers_manager
       - SQLITE_DB_PATH=/data/customers.db
       - SQLITE_IN_MEMORY=false
       # - SQLITE_DB_PATH=:memory:

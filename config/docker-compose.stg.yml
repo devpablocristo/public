@@ -1,18 +1,18 @@
 services:
-  customer_manager:
-    container_name: "customer_manager"
+  customers_manager:
+    container_name: "customers_manager"
     build:
       context: ..
       dockerfile: config/Dockerfile.stg
-    image: "customer_manager:${APP_VERSION}"
+    image: "customers_manager:${APP_VERSION}"
     env_file:
       - .env
     ports:
-      - "${CUSTOMER_MANAGER_WEB_SERVER_PORT}:${WEB_SERVER_PORT}"
+      - "${customers_manager_WEB_SERVER_PORT}:${WEB_SERVER_PORT}"
     volumes:
       - ./sqlite-data:/app/data
     environment:
-      - APP_NAME=customer_manager
+      - APP_NAME=customers_manager
       - SQLITE_DB_PATH=/app/data/customers.db
       - SQLITE_IN_MEMORY=false
       - GIN_MODE=debug
