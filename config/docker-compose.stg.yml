@@ -7,7 +7,6 @@ services:
     image: "customer_manager:${APP_VERSION}"
     env_file:
       - .env
-      - .env.local
     ports:
       - "${CUSTOMER_MANAGER_WEB_SERVER_PORT}:${WEB_SERVER_PORT}"
     volumes:

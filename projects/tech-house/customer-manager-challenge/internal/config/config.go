@@ -22,7 +22,7 @@ type Config struct {
 func Load() error {
 	var loadErr error
 	once.Do(func() {
-		initconf.LoadConfig("config/.env", "config/.env.local")
+		initconf.LoadConfig("config/.env")
 
 		secretKey, err := getEnv("JWT_SECRET_KEY")
 		if err != nil {
