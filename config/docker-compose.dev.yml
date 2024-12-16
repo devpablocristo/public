@@ -8,8 +8,8 @@ services:
     env_file:
       - .env
     ports:
-      - "${customers_manager_WEB_SERVER_PORT}:${WEB_SERVER_PORT}"
-      - "${customers_manager_DELVE_PORT}:${DELVE_PORT}"
+      - "${CUSTOMERS_MANAGER_WEB_SERVER_PORT}:${WEB_SERVER_PORT}"
+      - "${CUSTOMERS_MANAGER_DELVE_PORT}:${DELVE_PORT}"
     volumes:
       - type: bind
         source: ..

@@ -8,7 +8,7 @@ services:
     env_file:
       - .env
     ports:
-      - "${customers_manager_WEB_SERVER_PORT}:${WEB_SERVER_PORT}"
+      - "${CUSTOMERS_MANAGER_WEB_SERVER_PORT}:${WEB_SERVER_PORT}"
     volumes:
       - ./sqlite-data:/app/data
     environment:
