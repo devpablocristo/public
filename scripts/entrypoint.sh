@@ -63,7 +63,6 @@ main() {
 
   # Load environment variables from .env and .env.local
   loadEnvFile "./config/.env"
-  loadEnvFile "./config/.env.local"
 
   validateEnv
   initializeFileChangeLogger

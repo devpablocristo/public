@@ -1,121 +1,93 @@
-# Guía de Instalación Tech House
+# Customer Manager API
 
-Este documento proporciona las instrucciones para levantar el proyecto Tech House tanto en ambiente de desarrollo como en staging.
+## Índice
+1. [Descripción del Proyecto](#descripción-del-proyecto)
+2. [Guía de Instalación](#guía-de-instalación)
+3. [Documentación de la API](#documentación-de-la-api)
+4. [Especificaciones Técnicas](#especificaciones-técnicas)
+5. [Testing y Desarrollo](#testing-y-desarrollo)
 
-## Requisitos Previos
+## Descripción del Proyecto
 
-- Docker instalado y funcionando en tu sistema
-- Make instalado en tu sistema
+API en Golang para la gestión de clientes, desarrollada como parte del desafío Tech House.
+
+### Stack Tecnológico
+- **Lenguaje**: Golang
+- **Framework HTTP**: Gin
+- **Base de datos**: SQLite
+- **Gestión de dependencias**: Go Modules
+- **Contenerización**: Docker
+
+## Guía de Instalación
+
+### Requisitos Previos
+- Docker instalado y funcionando
+- Make instalado
 - Git para clonar el repositorio
 
-## Ambiente de Desarrollo
+### Ambiente de Desarrollo
 
-### Construcción de Imágenes
-Para construir las imágenes de Docker necesarias para el ambiente de desarrollo:
-
+#### Construcción de Imágenes
 ```bash
 make tech-house-dev-build
 ```
 
-### Levantar el Proyecto
-Para iniciar todos los servicios en modo desarrollo:
-
+#### Levantar el Proyecto
 ```bash
 make tech-house-dev-up
 ```
 
-### Detener el Proyecto
-Para detener todos los servicios:
-
+#### Detener el Proyecto
 ```bash
 make tech-house-dev-down
 ```
 
-### Ver Logs
-Para ver los logs de los servicios en desarrollo:
-
+#### Ver Logs
 ```bash
 make tech-house-dev-logs
 ```
 
-## Ambiente de Staging
+### Ambiente de Staging
 
-### Construcción de Imágenes
-Para construir las imágenes de Docker necesarias para el ambiente de staging:
-
+#### Construcción de Imágenes
 ```bash
 make tech-house-stg-build
 ```
 
-### Levantar el Proyecto
-Para iniciar todos los servicios en modo staging:
-
+#### Levantar el Proyecto
 ```bash
 make tech-house-stg-up
 ```
 
-### Detener el Proyecto
-Para detener todos los servicios:
-
+#### Detener el Proyecto
 ```bash
 make tech-house-stg-down
 ```
 
-### Ver Logs
-Para ver los logs de los servicios en staging:
-
+#### Ver Logs
 ```bash
 make tech-house-stg-logs
 ```
 
-## Estructura del Proyecto
+## Documentación de la API
 
-El proyecto utiliza un Makefile con perfiles específicos para Tech House, permitiendo una fácil gestión de los diferentes ambientes (desarrollo y staging). Los comandos están organizados de la siguiente manera:
-
-- Comandos `dev`: Utilizados para desarrollo local
-- Comandos `stg`: Utilizados para el ambiente de staging
-
-## Solución de Problemas Comunes
-
-1. Si los servicios no inician correctamente:
-   - Verifica que los puertos necesarios estén disponibles
-   - Revisa los logs usando los comandos correspondientes
-   - Asegúrate de que Docker esté corriendo
-
-2. Si la construcción falla:
-   - Limpia las imágenes de Docker y vuelve a intentar
-   - Verifica que tengas las últimas versiones del código
-
-## Notas Adicionales
-
-- Los comandos de desarrollo (`dev`) están optimizados para desarrollo local y incluyen características como hot-reload
-- Los comandos de staging (`stg`) están configurados para un ambiente más cercano a producción
-- Todos los comandos utilizan el perfil "tech-house" específicamente
-
-Para cualquier problema adicional, consulta la documentación del proyecto o contacta al equipo de desarrollo.
-
-# Documentación de la API del Gestor de Clientes
-
-Este documento proporciona información detallada sobre los endpoints disponibles en la API del Gestor de Clientes, parte del proyecto Costumer Manager.
-
-## Configuración Base
-
+### Configuración Base
 - **Host**: localhost
 - **Puerto**: 8089
 - **URL Base**: `/api/v1`
 - **Content-Type**: application/json
 
-## Endpoints de Clientes
+### Endpoints
 
-### GET /customers
-Obtiene una lista de todos los clientes.
+#### GET /customers
+Obtiene lista de todos los clientes.
 
 **Request**
 ```http
 GET http://localhost:8089/api/v1/customers
 ```
 
-**Respuesta (200 OK)**
+**Response (200 OK)**
 ```json
 {
     "customers": [
@@ -132,15 +104,15 @@ GET http://localhost:8089/api/v1/customers
 }
 ```
 
-### GET /customers/{id}
-Obtiene un cliente específico por ID.
+#### GET /customers/{id}
+Obtiene un cliente específico.
 
 **Request**
 ```http
 GET http://localhost:8089/api/v1/customers/164
 ```
 
-**Respuesta (200 OK)**
+**Response (200 OK)**
 ```json
 {
     "customers": {
@@ -155,7 +127,7 @@ GET http://localhost:8089/api/v1/customers/164
 }
 ```
 
-### POST /customers
+#### POST /customers
 Crea un nuevo cliente.
 
 **Request**
@@ -166,18 +138,18 @@ Content-Type: application/json
 {
     "name": "Homero",
     "last_name": "Simpson",
-    "email": "homeros@springfield.com",
+    "email": "homero@springfield.com",
     "phone": "555123789",
     "age": 25,
     "birth_date": "1999-01-15T00:00:00Z"
 }
 ```
 
-**Respuesta**
+**Response**
 - 201 Created: Cliente creado exitosamente
 - 400 Bad Request: Datos de entrada inválidos
 
-### PUT /customers/{id}
+#### PUT /customers/{id}
 Actualiza un cliente existente.
 
 **Request**
@@ -195,12 +167,12 @@ Content-Type: application/json
 }
 ```
 
-**Respuesta**
+**Response**
 - 200 OK: Cliente actualizado exitosamente
 - 400 Bad Request: Datos de entrada inválidos
 - 404 Not Found: Cliente no encontrado
 
-### DELETE /customers/{id}
+#### DELETE /customers/{id}
 Elimina un cliente.
 
 **Request**
@@ -208,86 +180,105 @@ Elimina un cliente.
 DELETE http://localhost:8089/api/v1/customers/176
 ```
 
-**Respuesta**
+**Response**
 - 204 No Content: Cliente eliminado exitosamente
 - 404 Not Found: Cliente no encontrado
 
-### GET /customers/kpi
-Obtiene KPIs (Indicadores Clave de Rendimiento) de los clientes.
+#### GET /customers/kpi
+Obtiene métricas KPI de clientes.
 
 **Request**
 ```http
 GET http://localhost:8089/api/v1/customers/kpi
 ```
 
-**Respuesta (200 OK)**
+**Response (200 OK)**
 ```json
 {
-    // métricas KPI
+    "average_age": 35.5,
+    "age_std_deviation": 7.8
 }
 ```
 
-## Endpoints de Utilidad
+## Especificaciones Técnicas
 
-### GET /ping
-Endpoint simple de ping para probar la conectividad de la API.
-
-**Request**
-```http
-GET http://localhost:8089/api/v1/ping
+### Estructura del Proyecto
+```
+/
+├── internal/
+│   ├── config/         # Configuraciones
+│   └── customer/       # Módulo de clientes
+│       ├── adapters/   # Adaptadores (inbound/outbound)
+│       ├── core/       # Lógica de negocio
+│       └── ports/      # Interfaces
+├── pkg/                # Paquetes compartidos
+└── docker/            # Archivos Docker
 ```
 
-**Respuesta (200 OK)**
+### Modelos de Datos
+
+#### Cliente
 ```json
 {
-    "message": "pong"
-}
-```
-
-## Estructura de Datos del Cliente
-
-### Campos Requeridos
-```json
-{
-    "name": "string",       // Nombre del cliente
-    "last_name": "string",  // Apellido del cliente
-    "email": "string",      // Correo electrónico (único)
-    "phone": "string",      // Número de teléfono
-    "age": number,          // Edad
-    "birth_date": "string"  // Fecha de nacimiento (formato ISO 8601)
+    "name": "string",       // Mínimo 2 caracteres, máximo 100
+    "last_name": "string",  // Mínimo 2 caracteres, máximo 100
+    "email": "string",      // Formato email válido, único
+    "phone": "string",      // Mínimo 7 caracteres
+    "age": number,          // Entre 1 y 150
+    "birth_date": "string"  // Formato ISO 8601
 }
 ```
 
 ### Validaciones
-- El email debe ser único en el sistema
-- La fecha de nacimiento debe estar en formato ISO 8601 (ejemplo: "2004-01-15T00:00:00Z")
-- La edad debe ser un número positivo
-- Los campos name, last_name, email, edad y fecha de nacimiento son obligatorios
 
-## Respuestas de Error
+- **Nombre y Apellido**:
+  - Longitud: 2-100 caracteres
+  - No permite caracteres especiales
+- **Email**:
+  - Formato válido
+  - Único en el sistema
+  - Máximo 254 caracteres
+- **Teléfono**:
+  - Mínimo 7 dígitos
+  - Solo números
+- **Edad**:
+  - Rango: 1-150
+  - Debe coincidir con fecha de nacimiento
+- **Fecha de Nacimiento**:
+  - Formato ISO 8601
+  - No puede ser futura
+  - Debe coincidir con edad
 
-La API devuelve respuestas de error estandarizadas en el siguiente formato:
+## Testing y Desarrollo
 
-```json
-{
-    "error": {
-        "code": "string",
-        "message": "string",
-        "details": "string"
-    }
-}
+### Ejecutar Pruebas
+```bash
+# Ejecutar todas las pruebas
+go test ./... -v
+
+# Ejecutar pruebas de integración
+go test ./integration/... -v
 ```
 
-Códigos de error comunes:
-- Entrada Inválida: Cuando los datos proporcionados no cumplen con el formato esperado
-- Error de Validación: Cuando los datos no pasan las validaciones de negocio
-- No Encontrado: Cuando el recurso solicitado no existe
-- Error Interno del Servidor: Cuando ocurre un error inesperado
+### Postman Collection
 
-## Colección de Postman
+Para probar la API, puedes importar la colección de Postman usando el siguiente ID:
 
-Adjunta la coleccion de postman correspondiente.
+**ID**: cac1bf80-1783-494f-8478-96aa2ad322bf
 
+### Solución de Problemas Comunes
+
+1. **Servicios no inician**:
+   - Verificar puertos disponibles
+   - Revisar logs
+   - Comprobar Docker
+
+2. **Fallo en construcción**:
+   - Limpiar imágenes Docker
+   - Actualizar código
+
+Para problemas adicionales, contactar al equipo de desarrollo.
+Adjunto el archivo de la coleccion de postman correspondiente.
 
 # Challenge
 
