@@ -4,7 +4,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/spf13/viper"
 
-	defs "github.com/devpablocristo/customer-manager/pkg/rest/servers/gin/defs"
+	defs "github.com/devpablocristo/tech-house/pkg/rest/servers/gin/defs"
 )
 
 func Bootstrap(isTest bool) (defs.Server, error) {

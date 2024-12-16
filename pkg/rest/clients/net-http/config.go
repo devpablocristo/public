@@ -4,7 +4,7 @@ import (
 	"log"
 	"net/url"
 
-	"github.com/devpablocristo/customer-manager/pkg/rest/clients/net-http/defs"
+	"github.com/devpablocristo/tech-house/pkg/rest/clients/net-http/defs"
 )
 
 type config struct {

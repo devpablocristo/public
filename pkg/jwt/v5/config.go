@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/devpablocristo/customer-manager/pkg/jwt/v5/defs"
+	"github.com/devpablocristo/tech-house/pkg/jwt/v5/defs"
 )
 
 type config struct {

@@ -3,7 +3,7 @@ package pkgsqlite
 import (
 	"github.com/spf13/viper"
 
-	"github.com/devpablocristo/customer-manager/pkg/databases/sql/sqlite/defs"
+	"github.com/devpablocristo/tech-house/pkg/databases/sql/sqlite/defs"
 )
 
 func Bootstrap() (defs.Repository, error) {

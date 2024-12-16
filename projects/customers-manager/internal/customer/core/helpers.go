@@ -3,7 +3,7 @@ package core
 import (
 	"math"
 
-	domain "github.com/devpablocristo/customer-manager/projects/tech-house/customer-manager-challenge/internal/customer/core/domain"
+	domain "github.com/devpablocristo/tech-house/projects/customers-manager/internal/customer/core/domain"
 )
 
 func calculateKPI(customers []domain.Customer) *domain.KPI {

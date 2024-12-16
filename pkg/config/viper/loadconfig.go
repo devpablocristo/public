@@ -8,7 +8,7 @@ import (
 
 	"github.com/spf13/viper"
 
-	pkgutils "github.com/devpablocristo/customer-manager/pkg/utils"
+	pkgutils "github.com/devpablocristo/tech-house/pkg/utils"
 )
 
 // NOTE: revisar los prints y errores

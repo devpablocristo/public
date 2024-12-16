@@ -1,9 +1,9 @@
 package inbound
 
 import (
-	types "github.com/devpablocristo/customer-manager/pkg/types"
-	utils "github.com/devpablocristo/customer-manager/pkg/utils"
-	transport "github.com/devpablocristo/customer-manager/projects/tech-house/customer-manager-challenge/internal/customer/adapters/inbound/transport"
+	types "github.com/devpablocristo/tech-house/pkg/types"
+	utils "github.com/devpablocristo/tech-house/pkg/utils"
+	transport "github.com/devpablocristo/tech-house/projects/customers-manager/internal/customer/adapters/inbound/transport"
 )
 
 const (

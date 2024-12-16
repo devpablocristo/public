@@ -21,7 +21,7 @@ services:
     security_opt:
       - seccomp:unconfined
     environment:
-      - BUILDING_FILES=/app/projects/tech-house/customer-manager-challenge/cmd/api/main.go
+      - BUILDING_FILES=/app/projects/tech-house/customers-manager/cmd/api/main.go
       - APP_NAME=customer_manager
       - SQLITE_DB_PATH=/data/customers.db
       - SQLITE_IN_MEMORY=false

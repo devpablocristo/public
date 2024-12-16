@@ -8,7 +8,7 @@ import (
 	"github.com/aws/aws-sdk-go-v2/config"
 	"github.com/aws/aws-sdk-go-v2/credentials"
 
-	"github.com/devpablocristo/customer-manager/pkg/aws/localstack/defs"
+	"github.com/devpablocristo/tech-house/pkg/aws/localstack/defs"
 )
 
 var (

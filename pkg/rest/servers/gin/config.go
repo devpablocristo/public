@@ -3,7 +3,7 @@ package pkggin
 import (
 	"fmt"
 
-	defs "github.com/devpablocristo/customer-manager/pkg/rest/servers/gin/defs"
+	defs "github.com/devpablocristo/tech-house/pkg/rest/servers/gin/defs"
 )
 
 type config struct {

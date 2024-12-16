@@ -9,15 +9,15 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	mwr "github.com/devpablocristo/customer-manager/pkg/rest/middlewares/gin"
-	ginserver "github.com/devpablocristo/customer-manager/pkg/rest/servers/gin"
-	gindefs "github.com/devpablocristo/customer-manager/pkg/rest/servers/gin/defs"
-	types "github.com/devpablocristo/customer-manager/pkg/types"
-	utils "github.com/devpablocristo/customer-manager/pkg/utils"
+	mwr "github.com/devpablocristo/tech-house/pkg/rest/middlewares/gin"
+	ginserver "github.com/devpablocristo/tech-house/pkg/rest/servers/gin"
+	gindefs "github.com/devpablocristo/tech-house/pkg/rest/servers/gin/defs"
+	types "github.com/devpablocristo/tech-house/pkg/types"
+	utils "github.com/devpablocristo/tech-house/pkg/utils"
 
-	config "github.com/devpablocristo/customer-manager/projects/tech-house/customer-manager-challenge/internal/config"
-	transport "github.com/devpablocristo/customer-manager/projects/tech-house/customer-manager-challenge/internal/customer/adapters/inbound/transport"
-	ports "github.com/devpablocristo/customer-manager/projects/tech-house/customer-manager-challenge/internal/customer/core/ports"
+	config "github.com/devpablocristo/tech-house/projects/customers-manager/internal/config"
+	transport "github.com/devpablocristo/tech-house/projects/customers-manager/internal/customer/adapters/inbound/transport"
+	ports "github.com/devpablocristo/tech-house/projects/customers-manager/internal/customer/core/ports"
 )
 
 type Handler struct {

@@ -3,7 +3,7 @@ package pkghcl
 import (
 	"github.com/spf13/viper"
 
-	"github.com/devpablocristo/customer-manager/pkg/rest/clients/net-http/defs"
+	"github.com/devpablocristo/tech-house/pkg/rest/clients/net-http/defs"
 )
 
 func Bootstrap(tokenEndPoint, clientID, clientSecret string, additionalParams map[string]string) (defs.Client, defs.Config, error) {

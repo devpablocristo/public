@@ -6,8 +6,8 @@ import (
 	"errors"
 	"fmt"
 
-	types "github.com/devpablocristo/customer-manager/pkg/types"
-	transport "github.com/devpablocristo/customer-manager/projects/tech-house/customer-manager-challenge/internal/customer/adapters/outbound/transport"
+	types "github.com/devpablocristo/tech-house/pkg/types"
+	transport "github.com/devpablocristo/tech-house/projects/customers-manager/internal/customer/adapters/outbound/transport"
 )
 
 const (

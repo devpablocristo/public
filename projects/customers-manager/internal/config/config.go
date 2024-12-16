@@ -6,8 +6,8 @@ import (
 	"os"
 	"sync"
 
-	initconf "github.com/devpablocristo/customer-manager/pkg/config/init-config"
-	mwr "github.com/devpablocristo/customer-manager/pkg/rest/middlewares/gin"
+	initconf "github.com/devpablocristo/tech-house/pkg/config/init-config"
+	mwr "github.com/devpablocristo/tech-house/pkg/rest/middlewares/gin"
 )
 
 var (

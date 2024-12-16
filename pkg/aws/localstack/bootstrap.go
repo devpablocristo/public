@@ -3,7 +3,7 @@ package pkgaws
 import (
 	"github.com/spf13/viper"
 
-	"github.com/devpablocristo/customer-manager/pkg/aws/localstack/defs"
+	"github.com/devpablocristo/tech-house/pkg/aws/localstack/defs"
 )
 
 func Bootstrap() (defs.Stack, error) {

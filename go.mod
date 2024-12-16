@@ -1,4 +1,4 @@
-module github.com/devpablocristo/customer-manager
+module github.com/devpablocristo/tech-house
 
 go 1.23
 

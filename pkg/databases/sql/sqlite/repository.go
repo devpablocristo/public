@@ -12,7 +12,7 @@ import (
 
 	_ "github.com/mattn/go-sqlite3"
 
-	"github.com/devpablocristo/customer-manager/pkg/databases/sql/sqlite/defs"
+	"github.com/devpablocristo/tech-house/pkg/databases/sql/sqlite/defs"
 )
 
 var (

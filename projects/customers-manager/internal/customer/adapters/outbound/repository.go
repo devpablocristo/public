@@ -5,13 +5,13 @@ import (
 	"database/sql"
 	"errors"
 
-	sqrepo "github.com/devpablocristo/customer-manager/pkg/databases/sql/sqlite"
-	sqdefs "github.com/devpablocristo/customer-manager/pkg/databases/sql/sqlite/defs"
+	sqrepo "github.com/devpablocristo/tech-house/pkg/databases/sql/sqlite"
+	sqdefs "github.com/devpablocristo/tech-house/pkg/databases/sql/sqlite/defs"
 
-	types "github.com/devpablocristo/customer-manager/pkg/types"
-	transport "github.com/devpablocristo/customer-manager/projects/tech-house/customer-manager-challenge/internal/customer/adapters/outbound/transport"
-	domain "github.com/devpablocristo/customer-manager/projects/tech-house/customer-manager-challenge/internal/customer/core/domain"
-	ports "github.com/devpablocristo/customer-manager/projects/tech-house/customer-manager-challenge/internal/customer/core/ports"
+	types "github.com/devpablocristo/tech-house/pkg/types"
+	transport "github.com/devpablocristo/tech-house/projects/customers-manager/internal/customer/adapters/outbound/transport"
+	domain "github.com/devpablocristo/tech-house/projects/customers-manager/internal/customer/core/domain"
+	ports "github.com/devpablocristo/tech-house/projects/customers-manager/internal/customer/core/ports"
 )
 
 type repository struct {

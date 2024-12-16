@@ -14,12 +14,12 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	types "github.com/devpablocristo/customer-manager/pkg/types"
-	"github.com/devpablocristo/customer-manager/projects/tech-house/customer-manager-challenge/internal/config"
-	custin "github.com/devpablocristo/customer-manager/projects/tech-house/customer-manager-challenge/internal/customer/adapters/inbound"
-	"github.com/devpablocristo/customer-manager/projects/tech-house/customer-manager-challenge/internal/customer/adapters/inbound/transport"
-	custout "github.com/devpablocristo/customer-manager/projects/tech-house/customer-manager-challenge/internal/customer/adapters/outbound"
-	custcore "github.com/devpablocristo/customer-manager/projects/tech-house/customer-manager-challenge/internal/customer/core"
+	types "github.com/devpablocristo/tech-house/pkg/types"
+	"github.com/devpablocristo/tech-house/projects/customers-manager/internal/config"
+	custin "github.com/devpablocristo/tech-house/projects/customers-manager/internal/customer/adapters/inbound"
+	"github.com/devpablocristo/tech-house/projects/customers-manager/internal/customer/adapters/inbound/transport"
+	custout "github.com/devpablocristo/tech-house/projects/customers-manager/internal/customer/adapters/outbound"
+	custcore "github.com/devpablocristo/tech-house/projects/customers-manager/internal/customer/core"
 )
 
 const testDBPath = "/app/config/sqlite-data/test.db"

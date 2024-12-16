@@ -4,11 +4,11 @@ import (
 	"context"
 	"log"
 
-	config "github.com/devpablocristo/customer-manager/projects/tech-house/customer-manager-challenge/internal/config"
+	config "github.com/devpablocristo/tech-house/projects/customers-manager/internal/config"
 
-	custin "github.com/devpablocristo/customer-manager/projects/tech-house/customer-manager-challenge/internal/customer/adapters/inbound"
-	custout "github.com/devpablocristo/customer-manager/projects/tech-house/customer-manager-challenge/internal/customer/adapters/outbound"
-	custcore "github.com/devpablocristo/customer-manager/projects/tech-house/customer-manager-challenge/internal/customer/core"
+	custin "github.com/devpablocristo/tech-house/projects/customers-manager/internal/customer/adapters/inbound"
+	custout "github.com/devpablocristo/tech-house/projects/customers-manager/internal/customer/adapters/outbound"
+	custcore "github.com/devpablocristo/tech-house/projects/customers-manager/internal/customer/core"
 )
 
 func init() {

@@ -16,7 +16,7 @@ COPY . .
 RUN go mod download && go mod verify
 
 RUN CGO_ENABLED=1 GOOS=linux go build -o /app/customer-manager \
-    ./projects/tech-house/customer-manager-challenge/cmd/api/main.go
+    ./projects/tech-house/customers-manager/cmd/api/main.go
 
 EXPOSE 8080
 

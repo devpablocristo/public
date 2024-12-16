@@ -3,9 +3,9 @@ package pkgconf
 import (
 	"log"
 
-	pkgenvs "github.com/devpablocristo/customer-manager/pkg/config/godotenv"
-	pkgviper "github.com/devpablocristo/customer-manager/pkg/config/viper"
-	pkgutils "github.com/devpablocristo/customer-manager/pkg/utils"
+	pkgenvs "github.com/devpablocristo/tech-house/pkg/config/godotenv"
+	pkgviper "github.com/devpablocristo/tech-house/pkg/config/viper"
+	pkgutils "github.com/devpablocristo/tech-house/pkg/utils"
 )
 
 func LoadConfig(filePaths ...string) {

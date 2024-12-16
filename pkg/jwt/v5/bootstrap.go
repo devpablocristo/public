@@ -3,7 +3,7 @@ package pkgjwt
 import (
 	"github.com/spf13/viper"
 
-	"github.com/devpablocristo/customer-manager/pkg/jwt/v5/defs"
+	"github.com/devpablocristo/tech-house/pkg/jwt/v5/defs"
 )
 
 func Bootstrap(secretKey, accessExpirationKey, refreshExpirationKey string) (defs.Service, error) {
