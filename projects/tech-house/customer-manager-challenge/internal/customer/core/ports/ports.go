@@ -3,7 +3,7 @@ package ports
 import (
 	"context"
 
-	"github.com/devpablocristo/golang-monorepo/projects/tech-house/customer-manager-challenge/internal/customer/core/domain"
+	"github.com/devpablocristo/customer-manager/projects/tech-house/customer-manager-challenge/internal/customer/core/domain"
 )
 
 type UseCases interface {

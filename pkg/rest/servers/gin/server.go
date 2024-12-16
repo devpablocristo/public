@@ -7,7 +7,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	defs "github.com/devpablocristo/golang-monorepo/pkg/rest/servers/gin/defs"
+	defs "github.com/devpablocristo/customer-manager/pkg/rest/servers/gin/defs"
 )
 
 var (

@@ -8,7 +8,7 @@ import (
 	"github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/aws/aws-sdk-go-v2/service/sqs"
 
-	"github.com/devpablocristo/golang-monorepo/pkg/aws/localstack/defs"
+	"github.com/devpablocristo/customer-manager/pkg/aws/localstack/defs"
 )
 
 type sqsClient struct {

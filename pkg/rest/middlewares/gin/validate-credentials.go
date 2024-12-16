@@ -5,7 +5,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	pkgtypes "github.com/devpablocristo/golang-monorepo/pkg/types"
+	pkgtypes "github.com/devpablocristo/customer-manager/pkg/types"
 )
 
 // Constantes para los mensajes de error

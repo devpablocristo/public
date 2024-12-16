@@ -3,9 +3,9 @@ package core
 import (
 	"context"
 
-	types "github.com/devpablocristo/golang-monorepo/pkg/types"
-	domain "github.com/devpablocristo/golang-monorepo/projects/tech-house/customer-manager-challenge/internal/customer/core/domain"
-	ports "github.com/devpablocristo/golang-monorepo/projects/tech-house/customer-manager-challenge/internal/customer/core/ports"
+	types "github.com/devpablocristo/customer-manager/pkg/types"
+	domain "github.com/devpablocristo/customer-manager/projects/tech-house/customer-manager-challenge/internal/customer/core/domain"
+	ports "github.com/devpablocristo/customer-manager/projects/tech-house/customer-manager-challenge/internal/customer/core/ports"
 )
 
 type UseCases struct {

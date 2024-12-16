@@ -8,7 +8,7 @@ import (
 
 	"github.com/golang-jwt/jwt/v5"
 
-	"github.com/devpablocristo/golang-monorepo/pkg/jwt/v5/defs"
+	"github.com/devpablocristo/customer-manager/pkg/jwt/v5/defs"
 )
 
 type service struct {

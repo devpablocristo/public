@@ -5,13 +5,13 @@ import (
 	"database/sql"
 	"errors"
 
-	sqrepo "github.com/devpablocristo/golang-monorepo/pkg/databases/sql/sqlite"
-	sqdefs "github.com/devpablocristo/golang-monorepo/pkg/databases/sql/sqlite/defs"
+	sqrepo "github.com/devpablocristo/customer-manager/pkg/databases/sql/sqlite"
+	sqdefs "github.com/devpablocristo/customer-manager/pkg/databases/sql/sqlite/defs"
 
-	types "github.com/devpablocristo/golang-monorepo/pkg/types"
-	transport "github.com/devpablocristo/golang-monorepo/projects/tech-house/customer-manager-challenge/internal/customer/adapters/outbound/transport"
-	domain "github.com/devpablocristo/golang-monorepo/projects/tech-house/customer-manager-challenge/internal/customer/core/domain"
-	ports "github.com/devpablocristo/golang-monorepo/projects/tech-house/customer-manager-challenge/internal/customer/core/ports"
+	types "github.com/devpablocristo/customer-manager/pkg/types"
+	transport "github.com/devpablocristo/customer-manager/projects/tech-house/customer-manager-challenge/internal/customer/adapters/outbound/transport"
+	domain "github.com/devpablocristo/customer-manager/projects/tech-house/customer-manager-challenge/internal/customer/core/domain"
+	ports "github.com/devpablocristo/customer-manager/projects/tech-house/customer-manager-challenge/internal/customer/core/ports"
 )
 
 type repository struct {

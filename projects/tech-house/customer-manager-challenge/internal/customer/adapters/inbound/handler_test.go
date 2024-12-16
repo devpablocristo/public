@@ -14,9 +14,9 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	types "github.com/devpablocristo/golang-monorepo/pkg/types"
-	inbound "github.com/devpablocristo/golang-monorepo/projects/tech-house/customer-manager-challenge/internal/customer/adapters/inbound"
-	domain "github.com/devpablocristo/golang-monorepo/projects/tech-house/customer-manager-challenge/internal/customer/core/domain"
+	types "github.com/devpablocristo/customer-manager/pkg/types"
+	inbound "github.com/devpablocristo/customer-manager/projects/tech-house/customer-manager-challenge/internal/customer/adapters/inbound"
+	domain "github.com/devpablocristo/customer-manager/projects/tech-house/customer-manager-challenge/internal/customer/core/domain"
 )
 
 var (

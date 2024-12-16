@@ -1,7 +1,7 @@
 package pkggin
 
 import (
-	defs "github.com/devpablocristo/golang-monorepo/pkg/rest/servers/gin/defs"
+	defs "github.com/devpablocristo/customer-manager/pkg/rest/servers/gin/defs"
 	"github.com/gin-gonic/gin"
 )
 

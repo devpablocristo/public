@@ -3,9 +3,9 @@ package pkgconf
 import (
 	"log"
 
-	pkgenvs "github.com/devpablocristo/golang-monorepo/pkg/config/godotenv"
-	pkgviper "github.com/devpablocristo/golang-monorepo/pkg/config/viper"
-	pkgutils "github.com/devpablocristo/golang-monorepo/pkg/utils"
+	pkgenvs "github.com/devpablocristo/customer-manager/pkg/config/godotenv"
+	pkgviper "github.com/devpablocristo/customer-manager/pkg/config/viper"
+	pkgutils "github.com/devpablocristo/customer-manager/pkg/utils"
 )
 
 func LoadConfig(filePaths ...string) {

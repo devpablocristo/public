@@ -3,7 +3,7 @@ package pkgsqlite
 import (
 	"fmt"
 
-	"github.com/devpablocristo/golang-monorepo/pkg/databases/sql/sqlite/defs"
+	"github.com/devpablocristo/customer-manager/pkg/databases/sql/sqlite/defs"
 )
 
 type config struct {

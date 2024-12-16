@@ -9,7 +9,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/devpablocristo/golang-monorepo/pkg/rest/clients/net-http/defs"
+	"github.com/devpablocristo/customer-manager/pkg/rest/clients/net-http/defs"
 )
 
 type client struct {

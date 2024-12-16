@@ -9,15 +9,15 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	mwr "github.com/devpablocristo/golang-monorepo/pkg/rest/middlewares/gin"
-	ginserver "github.com/devpablocristo/golang-monorepo/pkg/rest/servers/gin"
-	gindefs "github.com/devpablocristo/golang-monorepo/pkg/rest/servers/gin/defs"
-	types "github.com/devpablocristo/golang-monorepo/pkg/types"
-	utils "github.com/devpablocristo/golang-monorepo/pkg/utils"
+	mwr "github.com/devpablocristo/customer-manager/pkg/rest/middlewares/gin"
+	ginserver "github.com/devpablocristo/customer-manager/pkg/rest/servers/gin"
+	gindefs "github.com/devpablocristo/customer-manager/pkg/rest/servers/gin/defs"
+	types "github.com/devpablocristo/customer-manager/pkg/types"
+	utils "github.com/devpablocristo/customer-manager/pkg/utils"
 
-	config "github.com/devpablocristo/golang-monorepo/projects/tech-house/customer-manager-challenge/internal/config"
-	transport "github.com/devpablocristo/golang-monorepo/projects/tech-house/customer-manager-challenge/internal/customer/adapters/inbound/transport"
-	ports "github.com/devpablocristo/golang-monorepo/projects/tech-house/customer-manager-challenge/internal/customer/core/ports"
+	config "github.com/devpablocristo/customer-manager/projects/tech-house/customer-manager-challenge/internal/config"
+	transport "github.com/devpablocristo/customer-manager/projects/tech-house/customer-manager-challenge/internal/customer/adapters/inbound/transport"
+	ports "github.com/devpablocristo/customer-manager/projects/tech-house/customer-manager-challenge/internal/customer/core/ports"
 )
 
 type Handler struct {

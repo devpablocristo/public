@@ -6,8 +6,8 @@ import (
 	"errors"
 	"fmt"
 
-	types "github.com/devpablocristo/golang-monorepo/pkg/types"
-	transport "github.com/devpablocristo/golang-monorepo/projects/tech-house/customer-manager-challenge/internal/customer/adapters/outbound/transport"
+	types "github.com/devpablocristo/customer-manager/pkg/types"
+	transport "github.com/devpablocristo/customer-manager/projects/tech-house/customer-manager-challenge/internal/customer/adapters/outbound/transport"
 )
 
 const (
