@@ -1,0 +1,62 @@
+services:
+  customer_manager:
+    container_name: "customer_manager"
+    build:
+      context: ..
+      dockerfile: config/Dockerfile.stg
+    image: "customer_manager:${APP_VERSION}"
+    env_file:
+      - .env
+      - .env.local
+    ports:
+      - "${CUSTOMER_MANAGER_WEB_SERVER_PORT}:${WEB_SERVER_PORT}"
+    volumes:
+      - ./sqlite-data:/app/data
+    environment:
+      - APP_NAME=customer_manager
+      - SQLITE_DB_PATH=/app/data/customers.db
+      - SQLITE_IN_MEMORY=false
+      - GIN_MODE=debug
+    depends_on:
+      sqlite-persistent:
+        condition: service_healthy
+    networks:
+      - app-network
+    restart: unless-stopped
+    profiles:
+      - tech-house
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200k"
+        max-file: "10"
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:${WEB_SERVER_PORT}/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 5s
+
+  sqlite-persistent:
+    image: alpine/sqlite:3.45.3
+    container_name: sqlite-container
+    working_dir: /data
+    volumes:
+      - ./sqlite-data:/data
+      - ./sqlite-init:/sqlite-init
+    stdin_open: true
+    tty: true
+    entrypoint: ["/bin/sh", "-c"]
+    command: [
+      "sqlite3 /data/customers.db '.read /sqlite-init/customers.sql' && sqlite3 /data/customers.db"
+    ]
+    healthcheck:
+      test: ["CMD-SHELL", "sqlite3 /data/customers.db 'SELECT 1;'"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+
+networks:
+  app-network:
+    driver: bridge

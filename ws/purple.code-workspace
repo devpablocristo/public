@@ -1,0 +1,11 @@
+{
+    "folders": [
+        {
+            "path": ".."
+        }
+    ],
+    "settings": {
+        // Workbench
+        "workbench.colorTheme": "Shades of Purple (Super Dark)"
+    }
+}
