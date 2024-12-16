@@ -1,3 +1,100 @@
+# Guía de Instalación Tech House
+
+Este documento proporciona las instrucciones para levantar el proyecto Tech House tanto en ambiente de desarrollo como en staging.
+
+## Requisitos Previos
+
+- Docker instalado y funcionando en tu sistema
+- Make instalado en tu sistema
+- Git para clonar el repositorio
+
+## Ambiente de Desarrollo
+
+### Construcción de Imágenes
+Para construir las imágenes de Docker necesarias para el ambiente de desarrollo:
+
+```bash
+make tech-house-dev-build
+```
+
+### Levantar el Proyecto
+Para iniciar todos los servicios en modo desarrollo:
+
+```bash
+make tech-house-dev-up
+```
+
+### Detener el Proyecto
+Para detener todos los servicios:
+
+```bash
+make tech-house-dev-down
+```
+
+### Ver Logs
+Para ver los logs de los servicios en desarrollo:
+
+```bash
+make tech-house-dev-logs
+```
+
+## Ambiente de Staging
+
+### Construcción de Imágenes
+Para construir las imágenes de Docker necesarias para el ambiente de staging:
+
+```bash
+make tech-house-stg-build
+```
+
+### Levantar el Proyecto
+Para iniciar todos los servicios en modo staging:
+
+```bash
+make tech-house-stg-up
+```
+
+### Detener el Proyecto
+Para detener todos los servicios:
+
+```bash
+make tech-house-stg-down
+```
+
+### Ver Logs
+Para ver los logs de los servicios en staging:
+
+```bash
+make tech-house-stg-logs
+```
+
+## Estructura del Proyecto
+
+El proyecto utiliza un Makefile con perfiles específicos para Tech House, permitiendo una fácil gestión de los diferentes ambientes (desarrollo y staging). Los comandos están organizados de la siguiente manera:
+
+- Comandos `dev`: Utilizados para desarrollo local
+- Comandos `stg`: Utilizados para el ambiente de staging
+
+## Solución de Problemas Comunes
+
+1. Si los servicios no inician correctamente:
+   - Verifica que los puertos necesarios estén disponibles
+   - Revisa los logs usando los comandos correspondientes
+   - Asegúrate de que Docker esté corriendo
+
+2. Si la construcción falla:
+   - Limpia las imágenes de Docker y vuelve a intentar
+   - Verifica que tengas las últimas versiones del código
+
+## Notas Adicionales
+
+- Los comandos de desarrollo (`dev`) están optimizados para desarrollo local y incluyen características como hot-reload
+- Los comandos de staging (`stg`) están configurados para un ambiente más cercano a producción
+- Todos los comandos utilizan el perfil "tech-house" específicamente
+
+Para cualquier problema adicional, consulta la documentación del proyecto o contacta al equipo de desarrollo.
+
+
 Descripción del Desafío (con Docker y preparado para Lambda + KPI de Clientes):
 
 El reto consiste en desarrollar una API en Golang que permita gestionar clientes, usando Docker para contenerizar la aplicación y dejando todo listo para que la API pueda ser fácilmente desplegada en AWS Lambda. Además, se debe permitir la carga de edad y fecha de nacimiento de los clientes, y se debe implementar un endpoint que devuelva KPI de los clientes, como el promedio de edad y la desviación estándar.

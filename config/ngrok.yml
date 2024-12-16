@@ -1,0 +1,11 @@
+version: "2"
+
+authtoken: 2jhEJpFaUb8SS4maYeN6YCFJtkT_oc2FuSUspYntim8m6qUU
+
+web_addr: "127.0.0.1:5050"
+tunnels:
+  my-tunnel:
+    proto: http
+    addr: rest:8080
+    domain: brave-dane-forcibly.ngrok-free.app
+

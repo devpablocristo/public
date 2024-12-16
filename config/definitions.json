@@ -1,0 +1,17 @@
+{
+    "vhosts": [
+      {
+        "name": "/"
+      }
+    ],
+    "queues": [
+      {
+        "name": "myQueue",
+        "vhost": "/",
+        "durable": false,
+        "auto_delete": false,
+        "arguments": {}
+      }
+    ]
+  }
+  

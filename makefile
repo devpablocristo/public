@@ -109,84 +109,6 @@ docker-prod-logs:
 	@echo "Fetching logs for $(PROFILE) services in production..."
 	docker compose -f ${DOCKER_COMPOSE_PROD} --profile $(PROFILE) logs -f
 
-# Requests profile targets for dev
-sg_requests-dev-build:
-	@$(MAKE) docker-dev-build PROFILE=sg_requests
-
-sg_requests-dev-up:
-	@$(MAKE) docker-dev-up PROFILE=sg_requests
-
-sg_requests-dev-down:
-	@$(MAKE) docker-dev-down PROFILE=sg_requests
-
-sg_requests-dev-logs:
-	@$(MAKE) docker-dev-logs PROFILE=sg_requests
-
-# Requests profile targets for staging
-sg_requests-stg-build:
-	@$(MAKE) docker-stg-build PROFILE=sg_requests
-
-sg_requests-stg-up:
-	@$(MAKE) docker-stg-up PROFILE=sg_requests
-
-sg_requests-stg-down:
-	@$(MAKE) docker-stg-down PROFILE=sg_requests
-
-sg_requests-stg-logs:
-	@$(MAKE) docker-stg-logs PROFILE=sg_requests
-
-# Requests profile targets for production
-sg_requests-prod-build:
-	@$(MAKE) docker-prod-build PROFILE=sg_requests
-
-sg_requests-prod-up:
-	@$(MAKE) docker-prod-up PROFILE=sg_requests
-
-sg_requests-prod-down:
-	@$(MAKE) docker-prod-down PROFILE=sg_requests
-
-sg_requests-prod-logs:
-	@$(MAKE) docker-prod-logs PROFILE=sg_requests
-
-# Backend profile targets for dev
-sg_backend-dev-build:
-	@$(MAKE) docker-dev-build PROFILE=sg_backend
-
-sg_backend-dev-up:
-	@$(MAKE) docker-dev-up PROFILE=sg_backend
-
-sg_backend-dev-down:
-	@$(MAKE) docker-dev-down PROFILE=sg_backend
-
-sg_backend-dev-logs:
-	@$(MAKE) docker-dev-logs PROFILE=sg_backend
-
-# Backend profile targets for staging
-sg_backend-stg-build:
-	@$(MAKE) docker-stg-build PROFILE=sg_backend
-
-sg_backend-stg-up:
-	@$(MAKE) docker-stg-up PROFILE=sg_backend
-
-sg_backend-stg-down:
-	@$(MAKE) docker-stg-down PROFILE=sg_backend
-
-sg_backend-stg-logs:
-	@$(MAKE) docker-stg-logs PROFILE=sg_backend
-
-# Backend profile targets for production
-sg_backend-prod-build:
-	@$(MAKE) docker-prod-build PROFILE=sg_backend
-
-sg_backend-prod-up:
-	@$(MAKE) docker-prod-up PROFILE=sg_backend
-
-sg_backend-prod-down:
-	@$(MAKE) docker-prod-down PROFILE=sg_backend
-
-sg_backend-prod-logs:
-	@$(MAKE) docker-prod-logs PROFILE=sg_backend
-
 # Tech House profile targets for dev
 tech-house-dev-build:
 	@$(MAKE) docker-dev-build PROFILE=tech-house
@@ -212,16 +134,3 @@ tech-house-stg-down:
 
 tech-house-stg-logs:
 	@$(MAKE) docker-stg-logs PROFILE=tech-house
-
-# Tech House profile targets for production
-tech-house-prod-build:
-	@$(MAKE) docker-prod-build PROFILE=tech-house
-
-tech-house-prod-up:
-	@$(MAKE) docker-prod-up PROFILE=tech-house
-
-tech-house-prod-down:
-	@$(MAKE) docker-prod-down PROFILE=tech-house
-
-tech-house-prod-logs:
-	@$(MAKE) docker-prod-logs PROFILE=tech-house
