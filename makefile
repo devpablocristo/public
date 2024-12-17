@@ -14,7 +14,8 @@ DOCKER_COMPOSE_STG := ${CONFIG_DIR}/docker-compose.stg.yml
 	docker-dev-build docker-dev-up docker-dev-down docker-dev-logs \
 	docker-stg-build docker-stg-up docker-stg-down docker-stg-logs \
 	tech-house-dev-build tech-house-dev-up tech-house-dev-down tech-house-dev-logs \
-	tech-house-stg-build tech-house-stg-up tech-house-stg-down tech-house-stg-logs
+	tech-house-stg-build tech-house-stg-up tech-house-stg-down tech-house-stg-logs \
+	build-lambda
 
 # Default target
 all: build run
@@ -106,3 +107,12 @@ tech-house-stg-down:
 
 tech-house-stg-logs:
 	@$(MAKE) docker-stg-logs PROFILE=tech-house
+
+
+build-lambda:
+	# Compile for Linux (Lambda runtime)
+	GOOS=linux GOARCH=amd64 go build -o ./tmp/bootstrap ./projects/customers-manager/cmd/lambda
+	# Create the ZIP file for Lambda
+	zip ./zip-lambda/lambda.zip ./tmp/bootstrap
+	# Clean binary
+	rm ./tmp/bootstrap

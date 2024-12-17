@@ -12,7 +12,9 @@ import (
 )
 
 func init() {
-	config.Load()
+	if err := config.Load(); err != nil {
+		log.Fatalf("Error loading config: %s", err)
+	}
 }
 
 func main() {

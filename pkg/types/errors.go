@@ -20,6 +20,7 @@ const (
 	ErrUnavailable     ErrorType = "SERVICE_UNAVAILABLE"
 	ErrAuthentication  ErrorType = "AUTHENTICATION_ERROR"
 	ErrAuthorization   ErrorType = "AUTHORIZATION_ERROR"
+	ErrInternal        ErrorType = "INTERNAL_ERROR"
 )
 
 // Error representa un error del dominio

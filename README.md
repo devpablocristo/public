@@ -278,7 +278,16 @@ Para probar la API, puedes importar la colección de Postman usando el siguiente
    - Actualizar código
 
 Para problemas adicionales, contactar al equipo de desarrollo.
-Adjunto el archivo de la coleccion de postman correspondiente.
+Adjunto el archivo de la coleccion de postman correspondiente, revisar ./doc/Costumer Manager.postman_collection.json.
+
+## Despliegue en AWS Lambda
+
+Para desplegar la aplicación en AWS Lambda:
+
+1. Construir el paquete Lambda:
+```bash
+make build-lambda
+```
 
 # Challenge
 
@@ -292,13 +301,11 @@ Requisitos del Desafío:
    - Framework HTTP: Echo o Gin.
    - Base de datos: SQLite (o una base de datos en memoria para simplificar).
 
-// INFO: Done
 Contenerización: Docker.
 Gestión de dependencias: Utilizar Go Modules.
 Documentación de la API: Implementar Swagger para la documentación automática de la API.
 Preparado para AWS Lambda: El código debe estar estructurado para facilitar su despliegue en AWS Lambda o entornos similares.
 
-// INFO: Done
 Endpoints Requeridos:
    - GET /clients: Obtiene la lista de todos los clientes desde la base de datos en SQLite o en memoria.
    - GET /clients/{id}: Obtiene los detalles de un cliente específico.
@@ -309,7 +316,6 @@ Endpoints Requeridos:
        Promedio de edad.
        Desviación estándar de la edad.
 
-// INFO: Done
 Validaciones de Entrada:
    - Los campos name, last_name, email, edad y fecha de nacimiento son obligatorios para crear un cliente.
    - Validar que el email tenga un formato correcto.
@@ -317,35 +323,29 @@ Validaciones de Entrada:
    - La fecha de nacimiento debe ser válida y coherente con la edad provista.
    - Manejo de errores claros y consistentes para casos como cliente no encontrado, datos inválidos, etc.
 
-// INFO: Done
 Persistencia:
 Los clientes deben almacenarse localmente en una base de datos SQLite o en una estructura en memoria, permitiendo un despliegue rápido.
 
-// INFO: Done
 Contenerización con Docker:
    - Crear un Dockerfile para la aplicación Golang, con una imagen base ligera (por ejemplo, golang:alpine).
    - El contenedor debe exponer el puerto en el que la API estará escuchando.
    - Se debe poder ejecutar la aplicación localmente usando Docker para pruebas y desarrollo.
 
-// TODO
 Preparación para AWS Lambda:
  - El código debe estar preparado para ser empaquetado y desplegado en un entorno como AWS Lambda. Se debe incluir:
     - Handler adaptado para Lambda (lambda.HandlerFunc) o estructura similar.
     - Instrucciones claras para empaquetar la aplicación en un archivo ZIP compatible con AWS Lambda.
 
-// INFO: Done
 KPI de Clientes:
 Crear un endpoint GET /clients/kpi que calcule y devuelva los siguientes indicadores clave:
       - Promedio de edad: El cálculo del promedio de edad entre todos los clientes registrados.
   - Desviación estándar de edad: Calcular la variación de las edades respecto al promedio.
   - Los KPI deben calcularse en tiempo real basados en los clientes almacenados.
 
-// INFO: Done
 Testing:
    - Escribir pruebas unitarias para los handlers (endpoints).
    - Crear pruebas de integración para asegurarse de que la API funciona correctamente.
 
-// TODO
 Estructura del Proyecto:
 /handlers: Los handlers o controladores para manejar las peticiones HTTP.
 /models: Las estructuras de datos y lógica de negocio para los clientes.
@@ -354,12 +354,10 @@ Estructura del Proyecto:
 /docker: Archivos relacionados con Docker, como el Dockerfile.
 /lambda: Lógica o configuraciones necesarias para empaquetar y ejecutar la aplicación en AWS Lambda.
 
-// NOTE: Revisar
 Requisitos Técnicos Específicos:
   - Escalabilidad: El código debe estar modularizado y preparado para escalar, tanto a nivel local como en entornos serverless.
   - Optimización: Se valorará la optimización para un entorno serverless, como minimizar el tamaño del contenedor y reducir tiempos de arranque.
 
-// TODO
 Documentación:
    - Implementar Swagger para la documentación de los endpoints.
    - Incluir documentación sobre cómo ejecutar la aplicación localmente con Docker, y cómo empaquetarla para su despliegue en AWS Lambda.
