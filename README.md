@@ -289,6 +289,37 @@ Para desplegar la aplicación en AWS Lambda:
 make build-lambda
 ```
 
+## Documentación con Swagger
+
+1. Asegúrate de que el servidor esté en ejecución.
+
+2. Abre tu navegador web y ve a la siguiente URL:
+   ```
+   http://localhost:8100/swagger
+   ```
+
+3. Verás la interfaz de usuario de Swagger, donde podrás explorar y probar los diferentes endpoints de la API.
+
+## Generación de archivos de Swagger
+
+Para generar los archivos de Swagger, se proporciona un script de Bash llamado `swagger`. Sigue estos pasos para ejecutar el script:
+
+1. Abre una terminal en el directorio raíz del proyecto.
+
+2. Asegúrate de que el script `swagger` tenga permisos de ejecución. Si no los tiene, puedes otorgarlos con el siguiente comando:
+   ```
+   chmod +x ./scripts/swagger
+   ```
+
+3. Ejecuta el script con el siguiente comando:
+   ```
+   ./scripts/swagger
+   ```
+
+   Esto generará los archivos necesarios para la documentación de Swagger.
+
+Una vez que hayas seguido estos pasos, podrás acceder a la documentación de Swagger en `http://localhost:8100/swagger` y explorar los diferentes endpoints disponibles en la API REST.
+
 # Challenge
 
 Descripción del Desafío (con Docker y preparado para Lambda + KPI de Clientes):
