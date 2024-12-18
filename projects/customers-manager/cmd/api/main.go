@@ -30,7 +30,7 @@ func main() {
 
 	customerHandler, err := custin.NewHandler(customerUsecases)
 	if err != nil {
-		log.Fatalf("costumer Handler error: %v", err)
+		log.Fatalf("Costumer Handler error: %v", err)
 	}
 
 	err = customerHandler.Start(ctx)

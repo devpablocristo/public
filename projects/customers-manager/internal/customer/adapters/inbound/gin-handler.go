@@ -1,3 +1,8 @@
+// @title        Customer Manager API
+// @version      1.0
+// @description  API para gestión de clientes
+// @host         localhost:8080
+// @BasePath     /api/v1
 package inbound
 
 import (
@@ -12,6 +17,9 @@ import (
 	mwr "github.com/devpablocristo/tech-house/pkg/rest/middlewares/gin"
 	ginserver "github.com/devpablocristo/tech-house/pkg/rest/servers/gin"
 	gindefs "github.com/devpablocristo/tech-house/pkg/rest/servers/gin/defs"
+	swagdoc "github.com/devpablocristo/tech-house/pkg/swagger"
+	swagin "github.com/devpablocristo/tech-house/pkg/swagger/adapters"
+	swagdefs "github.com/devpablocristo/tech-house/pkg/swagger/defs"
 	types "github.com/devpablocristo/tech-house/pkg/types"
 	utils "github.com/devpablocristo/tech-house/pkg/utils"
 
@@ -23,6 +31,7 @@ import (
 type Handler struct {
 	Ucs ports.UseCases
 	Svr gindefs.Server
+	Swg swagdefs.Service
 }
 
 func NewHandler(u ports.UseCases) (*Handler, error) {
@@ -30,9 +39,16 @@ func NewHandler(u ports.UseCases) (*Handler, error) {
 	if err != nil {
 		return nil, err
 	}
+
+	g, err := swagdoc.Bootstrap()
+	if err != nil {
+		return nil, err
+	}
+
 	return &Handler{
 		Ucs: u,
 		Svr: s,
+		Swg: g,
 	}, nil
 }
 
@@ -70,8 +86,19 @@ func (h *Handler) Routes() {
 	{
 		protected.GET("/ping", h.ProtectedPing)
 	}
+
+	// Configurar Swagger
+	if err := swagin.SetupSwagger(router, h.Swg); err != nil {
+		panic(err)
+	}
 }
 
+// @Summary     Health check
+// @Description Verifica el estado del servicio
+// @Tags        system
+// @Produce     json
+// @Success     200 {object} gin.H
+// @Router      /health [get]
 func (h *Handler) Health(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{
 		"status":    "healthy",
@@ -79,14 +106,35 @@ func (h *Handler) Health(c *gin.Context) {
 	})
 }
 
+// @Summary     Ping
+// @Description Simple ping para verificar conectividad
+// @Tags        system
+// @Produce     json
+// @Success     200 {object} gin.H
+// @Router      /ping [get]
 func (h *Handler) Ping(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"message": "pong"})
 }
 
+// @Summary     Protected ping
+// @Description Ping protegido que requiere autenticación
+// @Tags        system
+// @Produce     json
+// @Security    ApiKeyAuth
+// @Success     200 {object} gin.H
+// @Failure     401 {object} types.APIError
+// @Router      /protected/ping [get]
 func (h *Handler) ProtectedPing(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"message": "protected pong"})
 }
 
+// @Summary     Get list of customers
+// @Description Obtiene la lista de todos los clientes
+// @Tags        customers
+// @Produce     json
+// @Success     200 {object} transport.GetCustomersResponse
+// @Failure     500 {object} types.APIError
+// @Router      /customers [get]
 func (h *Handler) GetCustomers(c *gin.Context) {
 	customers, err := h.Ucs.GetCustomers(c.Request.Context())
 	if err != nil {
@@ -99,6 +147,16 @@ func (h *Handler) GetCustomers(c *gin.Context) {
 	})
 }
 
+// @Summary     Get customer by ID
+// @Description Obtiene un cliente por su ID
+// @Tags        customers
+// @Produce     json
+// @Param       id path int true "Customer ID"
+// @Success     200 {object} transport.GetCustomerResponse
+// @Failure     400 {object} types.APIError
+// @Failure     404 {object} types.APIError
+// @Failure     500 {object} types.APIError
+// @Router      /customers/{id} [get]
 func (h *Handler) GetCustomer(c *gin.Context) {
 	ID, err := strconv.ParseInt(c.Param("id"), 10, 64)
 	if err != nil {
@@ -137,6 +195,16 @@ func (h *Handler) GetCustomer(c *gin.Context) {
 	})
 }
 
+// @Summary     Create customer
+// @Description Crea un nuevo cliente
+// @Tags        customers
+// @Accept      json
+// @Produce     json
+// @Param       customer body transport.CustomerJson true "Customer Data"
+// @Success     201
+// @Failure     400 {object} types.APIError
+// @Failure     500 {object} types.APIError
+// @Router      /customers [post]
 func (h *Handler) CreateCustomer(c *gin.Context) {
 	var req transport.CustomerJson
 	if err := c.ShouldBindJSON(&req); err != nil {
@@ -180,6 +248,18 @@ func (h *Handler) CreateCustomer(c *gin.Context) {
 	c.JSON(http.StatusCreated, nil)
 }
 
+// @Summary     Update customer
+// @Description Actualiza un cliente existente
+// @Tags        customers
+// @Accept      json
+// @Produce     json
+// @Param       id path int true "Customer ID"
+// @Param       customer body transport.CustomerJson true "Customer Data"
+// @Success     200
+// @Failure     400 {object} types.APIError
+// @Failure     404 {object} types.APIError
+// @Failure     500 {object} types.APIError
+// @Router      /customers/{id} [put]
 func (h *Handler) UpdateCustomer(c *gin.Context) {
 	ID, err := strconv.ParseInt(c.Param("id"), 10, 64)
 	if err != nil {
@@ -230,6 +310,15 @@ func (h *Handler) UpdateCustomer(c *gin.Context) {
 	c.Status(http.StatusOK)
 }
 
+// @Summary     Delete customer
+// @Description Elimina un cliente
+// @Tags        customers
+// @Param       id path int true "Customer ID"
+// @Success     204
+// @Failure     400 {object} types.APIError
+// @Failure     404 {object} types.APIError
+// @Failure     500 {object} types.APIError
+// @Router      /customers/{id} [delete]
 func (h *Handler) DeleteCustomer(c *gin.Context) {
 	ID, err := strconv.ParseInt(c.Param("id"), 10, 64)
 	if err != nil {
@@ -258,6 +347,13 @@ func (h *Handler) DeleteCustomer(c *gin.Context) {
 	c.Status(http.StatusNoContent)
 }
 
+// @Summary     Get KPIs
+// @Description Obtiene los KPIs de clientes
+// @Tags        customers
+// @Produce     json
+// @Success     200 {object} transport.GetKPIJson
+// @Failure     500 {object} types.APIError
+// @Router      /customers/kpi [get]
 func (h *Handler) GetKPI(c *gin.Context) {
 	kpi, err := h.Ucs.GetKPI(c.Request.Context())
 	if err != nil {

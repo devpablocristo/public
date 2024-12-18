@@ -56,6 +56,22 @@ services:
       retries: 3
       start_period: 5s
 
+  swagger-ui:
+    image: swaggerapi/swagger-ui:v5.18.2
+    container_name: swagger-ui-container
+    ports:
+      - "${SWAGGER_PORT}:${SWAGGER_PORT_TARGET}"
+    environment:
+      - SWAGGER_JSON=/swagger/swagger.json
+      - BASE_URL=/swagger
+      - API_URL=/swagger/swagger.json
+      - SWAGGER_DOCS=/swagger/docs
+    volumes:
+      - ../docs:/swagger/docs
+      - ../docs/swagger.json:/swagger/swagger.json
+    depends_on:
+      - customers_manager
+
 networks:
   app-network:
     driver: bridge

@@ -106,7 +106,7 @@ func Test_Handler_GetCustomers(t *testing.T) {
 		name     string
 		mock     ucsMock
 		wantCode int
-		wantBody any // puede ser types.APIErrorResponse o la respuesta exitosa
+		wantBody any
 	}{
 		{
 			name:     "should return customers successfully",

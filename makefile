@@ -108,7 +108,6 @@ tech-house-stg-down:
 tech-house-stg-logs:
 	@$(MAKE) docker-stg-logs PROFILE=tech-house
 
-
 build-lambda:
 	# Compile for Linux (Lambda runtime)
 	GOOS=linux GOARCH=amd64 go build -o ./tmp/bootstrap ./projects/customers-manager/cmd/lambda
